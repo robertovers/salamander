@@ -1,0 +1,24 @@
+{{ define "main" }}
+  {{ if eq .Kind "taxonomy" }}
+    <h2>All Tags</h2>
+    <ul>
+      {{ range .Site.Taxonomies.tags.Alphabetical }}
+        <li><a href="{{ .Page.Permalink }}">{{ .Name }} ({{ .Count }})</a></li>
+      {{ end }}
+    </ul>
+  {{ else if eq .Kind "term" }}
+    <h2>Posts tagged "{{ .Title }}"</h2>
+    <ul>
+      {{ range .Paginator.Pages }}
+        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+      {{ end }}
+    </ul>
+  {{ else }}
+    <h2>Blog</h2>
+    <ul>
+      {{ range .Paginator.Pages }}
+        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+      {{ end }}
+    </ul>
+  {{ end }}
+{{ end }}

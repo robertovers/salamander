@@ -1,0 +1,14 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  {{ $options := dict
+    "targetPath" "css/style.css"
+    "transpiler" "dartsass"
+  }}
+
+  {{ $style := resources.Get "sass/main.scss" | toCSS $options | minify | fingerprint }}
+  <link href="{{ $style.RelPermalink }}" rel="stylesheet">
+
+  <title>{{ .Site.Title }}</title>
+</head>

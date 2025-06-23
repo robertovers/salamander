@@ -1,0 +1,40 @@
+@use "vars";
+@use "hugo:vars" as h;
+
+h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, blockquote, body, html {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body {
+  font-family: vars.$fontParagraph;
+  color: vars.$primaryFontColour;
+  background-color: vars.$backgroundColour;
+  position: fixed;
+}
+
+title {
+  font-weight: normal;
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-family: vars.$fontHeader;
+    font-weight: normal;
+  }
+}
+
+a, a:visited {
+  color: vars.$accentFontColour;
+}
+
+a:link {
+  color: vars.$accentFontColour;
+  text-decoration: none;
+}
+
+a:hover {
+  color: vars.$backgroundColour;
+  background-color: white;
+}

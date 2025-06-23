@@ -1,0 +1,34 @@
+@use "vars";
+
+.main-wrapper {
+  display: flex;
+  width: 90vw;
+  height: 90vw;
+  flex: 1;
+  margin-top: 50px;
+}
+
+.sidebar {
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.content {
+  width: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+}
