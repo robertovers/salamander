@@ -1,5 +1,8 @@
 @use "vars";
 
+// todo: use variables?
+// todo: icons
+
 .main-wrapper {
   display: flex;
   flex-direction: row;
@@ -10,6 +13,7 @@
 
 .sidebar {
   width: 25vw;
+  padding: 20px;
   flex-shrink: 0;
 }
 
@@ -28,16 +32,19 @@
   flex: 1;
   flex-grow: 1;
   overflow-y: auto;
+  padding: 20px;
 }
 
 .header {
   position: fixed;
   top: 0;
+  padding: 20px;
 }
 
 .footer {
   position: fixed;
   bottom: 0;
-  text-align: center;
+  text-align: left;
   width: 100%;
+  padding: 20px;
 }

@@ -2,8 +2,6 @@
 
   <h1>{{ .Title }}</h1>
 
-  {{ .Content }}
-
   {{ with .Params.tags }}
     <p>Tags:
     {{ range . }}
@@ -11,4 +9,7 @@
     {{ end }}
     </p>
   {{ end }}
+
+  {{ .Content }}
+
 {{ end }}
