@@ -8,11 +8,12 @@
   {{ partial "header.html" . }}
 
   <div class="main-wrapper">
-    {{ partial "sidebar.html" . }}
+    {{ partial "left_sidebar.html" . }}
     <div class="content">
       {{ block "main" . }}
       {{ end }}
     </div>
+    {{ partial "right_sidebar.html" . }}
   </div>
   
   {{ partial "footer.html" . }}

@@ -2,22 +2,31 @@
 
 .main-wrapper {
   display: flex;
-  width: 90vw;
-  height: 90vw;
+  flex-direction: row;
+  width: 100vw;
   flex: 1;
   margin-top: 50px;
 }
 
 .sidebar {
-  width: 200px;
+  width: 25vw;
   flex-shrink: 0;
 }
 
+#left-sidebar {
+  order: 1;
+  text-align: left;
+}
+
+#right-sidebar {
+  order: 3;
+  text-align: right;
+}
+
 .content {
-  width: auto;
+  order: 2;
   flex: 1;
-  display: flex;
-  flex-direction: column;
+  flex-grow: 1;
   overflow-y: auto;
 }
 
