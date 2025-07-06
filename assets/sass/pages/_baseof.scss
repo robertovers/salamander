@@ -1,50 +1,66 @@
 @use "vars";
 
-// todo: use variables?
-// todo: icons
+$header-height: 60px; // 20px + 20px padding
+$footer-height: 60px; // 20px + 20px padding
+$sidebar-width: 15vw;
 
 .main-wrapper {
   display: flex;
   flex-direction: row;
   width: 100vw;
-  flex: 1;
-  margin-top: 50px;
+  height: calc(100vh - #{$header-height} - #{$footer-height});
+  margin-top: $header-height;
+  margin-bottom: $footer-height;
 }
 
 .sidebar {
-  width: 25vw;
+  width: $sidebar-width;
   padding: 20px;
-  flex-shrink: 0;
+  position: fixed;
+  top: $header-height;
+  bottom: $footer-height;
+  overflow-y: auto;
+  box-sizing: border-box;
 }
 
 #left-sidebar {
-  order: 1;
+  left: 0;
   text-align: left;
 }
 
 #right-sidebar {
-  order: 3;
+  right: 0;
   text-align: right;
 }
 
 .content {
-  order: 2;
-  flex: 1;
-  flex-grow: 1;
-  overflow-y: auto;
+  margin-left: $sidebar-width;
+  margin-right: $sidebar-width;
+  width: calc(100vw - (#{$sidebar-width} * 2));
   padding: 20px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  flex: 1;
 }
 
 .header {
   position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   padding: 20px;
+  height: 20px;
+  box-sizing: border-box;
+  z-index: 10;
 }
 
 .footer {
   position: fixed;
   bottom: 0;
-  text-align: left;
+  left: 0;
   width: 100%;
   padding: 20px;
+  height: 20px;
+  box-sizing: border-box;
+  z-index: 10;
 }
