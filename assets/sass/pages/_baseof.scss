@@ -41,6 +41,16 @@ $sidebar-width: 15vw;
   overflow-y: auto;
   box-sizing: border-box;
   flex: 1;
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: calc(vars.$content-spacing * 1.5);
+    margin-bottom: vars.$content-spacing;
+    &:first-child { margin-top: 0; }
+  }
+
+  p, ul, ol, blockquote, pre, figure {
+    margin-bottom: vars.$content-spacing;
+  }
 }
 
 .header {
