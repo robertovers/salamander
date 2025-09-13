@@ -19,7 +19,7 @@ const SUN_SYMBOL = "☼";
 /**
  * Determines if it's currently daytime based on local time.
  * Uses a simple heuristic: 6 AM to 6 PM is considered daytime.
- * 
+ *
  * @param timezone - IANA timezone identifier
  * @returns True if it's daytime, false if nighttime
  */
@@ -30,7 +30,7 @@ function isDaytime(timezone: string): boolean {
     hour12: false,
     hour: "2-digit",
   });
-  
+
   const hour = parseInt(timeString, 10);
   return hour >= 6 && hour < 18;
 }
@@ -38,40 +38,41 @@ function isDaytime(timezone: string): boolean {
 /**
  * Calculates the current moon phase based on the lunar cycle.
  * Uses astronomical calculations to determine moon phase.
- * 
+ *
  * @param date - Date to calculate moon phase for (defaults to current date)
  * @returns Moon phase emoji representing current lunar phase
  */
 function calculateMoonPhase(date: Date = new Date()): string {
   // known new moon date for Melbourne TODO: parameterise
   const knownNewMoon = new Date(2025, 9, 21, 19, 54);
-  
+
   // average lunar cycle length in milliseconds (29.53 days)
   const lunarCycle = 29.53 * 24 * 60 * 60 * 1000;
-  
+
   // calculate days since known new moon
-  const daysSinceNewMoon = (date.getTime() - knownNewMoon.getTime()) / lunarCycle;
-  
+  const daysSinceNewMoon =
+    (date.getTime() - knownNewMoon.getTime()) / lunarCycle;
+
   // get current position in lunar cycle (0-1)
   const cyclePosition = daysSinceNewMoon - Math.floor(daysSinceNewMoon);
-  
+
   // convert to phase index (0-7)
   const phaseIndex = Math.round(cyclePosition * 8) % 8;
-  
+
   return MOON_PHASES[phaseIndex];
 }
 
 /**
  * Updates the astronomy display with either sun (daytime) or moon phase (nighttime).
- * 
+ *
  * @param timezone - IANA timezone identifier for day/night calculation
  * @param elementId - DOM element ID to update (defaults to "astronomy-info")
- * 
+ *
  * @example
  * ```typescript
  * // Update astronomy display for Sydney timezone
  * updateAstronomy("Australia/Sydney");
- * 
+ *
  * // Update custom element
  * updateAstronomy("America/New_York", "my-astronomy-widget");
  * ```

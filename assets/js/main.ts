@@ -64,10 +64,7 @@ function initializeApp(): void {
   );
 
   updateAstronomy(config.timezone);
-  setInterval(
-    () => updateAstronomy(config.timezone),
-    CLOCK_UPDATE_INTERVAL,
-  );
+  setInterval(() => updateAstronomy(config.timezone), CLOCK_UPDATE_INTERVAL);
 
   updateWeather(config.latitude, config.longitude, config.timezone);
   setInterval(
