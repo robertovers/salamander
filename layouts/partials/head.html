@@ -10,7 +10,7 @@
   {{ $style := resources.Get "sass/main.scss" | toCSS $options | minify | fingerprint }}
   <link href="{{ $style.RelPermalink }}" rel="stylesheet">
 
-  {{ $js := resources.Get "js/main.js" | js.Build | minify | fingerprint }}
+  {{ $js := resources.Get "js/main.ts" | js.Build | minify | fingerprint }}
   <script src="{{ $js.RelPermalink }}" type="module"></script>
 
   <title>{{ .Site.Title }}</title>

@@ -7,18 +7,23 @@
   "scripts": {
     "dev": "hugo server -D",
     "build": "hugo --minify",
-    "lint:js": "eslint assets/js/**/*.js",
+    "type-check": "tsc --noEmit",
+    "lint:ts": "eslint assets/js/**/*.ts",
     "lint:scss": "stylelint assets/sass/**/*.scss",
-    "lint": "pnpm run lint:js && pnpm run lint:scss",
-    "format:js": "prettier --write assets/js/**/*.js",
+    "lint": "pnpm run lint:ts && pnpm run lint:scss",
+    "format:ts": "prettier --write assets/js/**/*.ts",
     "format:scss": "prettier --write assets/sass/**/*.scss",
-    "format": "pnpm run format:js && pnpm run format:scss"
+    "format": "pnpm run format:ts && pnpm run format:scss"
   },
   "devDependencies": {
+    "typescript": "^5.4.0",
     "eslint": "^9.35.0",
     "stylelint": "^16.24.0",
     "prettier": "^3.6.0",
-    "@eslint/js": "^9.0.0"
+    "@eslint/js": "^9.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "typescript-eslint": "^7.0.0"
   },
   "author": "Robert Overs",
   "license": "MIT"

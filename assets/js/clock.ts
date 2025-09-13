@@ -1,4 +1,4 @@
-function updateMelbourneTime() {
+function updateMelbourneTime(): void {
   const now = new Date();
   const melbourneTime = new Date(
     now.toLocaleString("en-US", { timeZone: "Australia/Melbourne" }),

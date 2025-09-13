@@ -1,4 +1,15 @@
-function getFromStorage(key, defaultValue = null) {
+interface WeatherData {
+  current: {
+    temperature_2m: number;
+    weather_code: number;
+  };
+}
+
+interface WeatherMap {
+  [key: number]: string;
+}
+
+function getFromStorage(key: string, defaultValue: any = null): any {
   try {
     const stored = sessionStorage.getItem(key);
     return stored ? JSON.parse(stored) : defaultValue;
@@ -7,20 +18,22 @@ function getFromStorage(key, defaultValue = null) {
   }
 }
 
-function setToStorage(key, value) {
+function setToStorage(key: string, value: any): void {
   try {
     sessionStorage.setItem(key, JSON.stringify(value));
   } catch {}
 }
 
-async function updateWeather() {
+async function updateWeather(): Promise<void> {
   const now = Date.now();
   const weatherElement = document.getElementById("weather-info");
 
-  if (!weatherElement) {return;}
+  if (!weatherElement) {
+    return;
+  }
 
-  const cachedWeather = getFromStorage("weatherCache");
-  const cacheTime = getFromStorage("weatherCacheTime", 0);
+  const cachedWeather: string | null = getFromStorage("weatherCache");
+  const cacheTime: number = getFromStorage("weatherCacheTime", 0);
 
   // use cached weather if less than 10 minutes old
   if (cachedWeather && now - cacheTime < 600000) {
@@ -32,12 +45,12 @@ async function updateWeather() {
     const response = await fetch(
       "https://api.open-meteo.com/v1/forecast?latitude=-37.8136&longitude=144.9631&current=temperature_2m,weather_code&timezone=Australia%2FMelbourne",
     );
-    const data = await response.json();
+    const data: WeatherData = await response.json();
 
     const temp = Math.round(data.current.temperature_2m);
     const weatherCode = data.current.weather_code;
 
-    const weatherMap = {
+    const weatherMap: WeatherMap = {
       0: "☀️",
       1: "🌤️",
       2: "⛅",
