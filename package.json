@@ -1,6 +1,6 @@
 {
   "name": "salamander-hugo-theme",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A Hugo theme",
   "private": true,
   "packageManager": "pnpm@8.15.0",
@@ -13,7 +13,10 @@
     "lint": "pnpm run lint:ts && pnpm run lint:scss",
     "format:ts": "prettier --write assets/js/**/*.ts",
     "format:scss": "prettier --write assets/sass/**/*.scss",
-    "format": "pnpm run format:ts && pnpm run format:scss"
+    "format": "pnpm run format:ts && pnpm run format:scss",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "changeset publish"
   },
   "devDependencies": {
     "typescript": "^5.4.0",
@@ -21,9 +24,10 @@
     "stylelint": "^16.24.0",
     "prettier": "^3.6.0",
     "@eslint/js": "^9.0.0",
-    "@typescript-eslint/eslint-plugin": "^7.0.0",
-    "@typescript-eslint/parser": "^7.0.0",
-    "typescript-eslint": "^7.0.0"
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "typescript-eslint": "^8.0.0",
+    "@changesets/cli": "^2.29.0"
   },
   "author": "Robert Overs",
   "license": "MIT"

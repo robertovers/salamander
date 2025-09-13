@@ -1,6 +1,8 @@
-baseURL = "https://robertovers.github.io/"
+baseURL = "https://example.com"
 languageCode = "en-us"
 title = "salamander theme"
+themesdir = "../.."
+theme = "salamander"
 
 [params.location]
 timezone = "Australia/Melbourne"
