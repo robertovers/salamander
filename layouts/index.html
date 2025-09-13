@@ -1,7 +1,11 @@
 {{ define "main" }}
 <div class="welcome">
-  <p>Hello, world!</p>
-  <p>Welcome to the salamander Hugo theme.</p>
+  {{ if .Site.Params.welcome.greeting }}
+  <p>{{ .Site.Params.welcome.greeting }}</p>
+  {{ end }}
+  {{ if .Site.Params.welcome.message }}
+  <p>{{ .Site.Params.welcome.message }}</p>
+  {{ end }}
   <div class="clock-weather-col">
     <span class="timezone-label">{{ .Site.Params.location.city }}</span>
     <span id="clock" class="time-display"></span>
