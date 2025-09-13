@@ -21,6 +21,14 @@ $sidebar-width: 15vw;
   bottom: $footer-height;
   overflow-y: auto;
   box-sizing: border-box;
+
+  nav {
+    font-family: vars.$fontAccent;
+
+    li {
+      font-family: vars.$fontAccent;
+    }
+  }
 }
 
 #left-sidebar {
@@ -63,6 +71,14 @@ $sidebar-width: 15vw;
   figure {
     margin-bottom: vars.$content-spacing;
   }
+
+  ul {
+    font-family: vars.$fontAccent;
+
+    li {
+      font-family: vars.$fontAccent;
+    }
+  }
 }
 
 .header {
@@ -85,6 +101,7 @@ $sidebar-width: 15vw;
     text-align: left;
     max-width: 500px;
     color: vars.$titleColour;
+    font-family: vars.$fontAccent;
   }
 
   .clock-weather-row {
@@ -98,6 +115,8 @@ $sidebar-width: 15vw;
     .weather-display,
     .separator {
       color: vars.$titleColour;
+      opacity: 0.7;
+      font-family: vars.$fontAccent;
     }
 
     .weather-display {
