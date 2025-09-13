@@ -1,9 +1,17 @@
+// =============================================================================
+// LAYOUT STYLES
+// =============================================================================
+
 @use "vars";
 
+// Layout constants
+// -----------------------------------------------------------------------------
 $header-height: 80px; // 40px + 20px padding
 $footer-height: 60px; // 20px + 20px padding
 $sidebar-width: 15vw;
 
+// Main layout
+// -----------------------------------------------------------------------------
 .main-wrapper {
   display: flex;
   flex-direction: row;
@@ -13,6 +21,8 @@ $sidebar-width: 15vw;
   margin-bottom: $footer-height;
 }
 
+// Sidebars
+// -----------------------------------------------------------------------------
 .sidebar {
   width: $sidebar-width;
   padding: 20px;
@@ -23,10 +33,10 @@ $sidebar-width: 15vw;
   box-sizing: border-box;
 
   nav {
-    font-family: vars.$fontAccent;
+    font-family: vars.$font-accent;
 
     li {
-      font-family: vars.$fontAccent;
+      font-family: vars.$font-accent;
     }
   }
 }
@@ -41,6 +51,8 @@ $sidebar-width: 15vw;
   text-align: right;
 }
 
+// Content area
+// -----------------------------------------------------------------------------
 .content {
   margin-left: $sidebar-width;
   margin-right: $sidebar-width;
@@ -50,37 +62,43 @@ $sidebar-width: 15vw;
   box-sizing: border-box;
   flex: 1;
 
+  // Heading spacing
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    margin-top: calc(vars.$content-spacing * 1.5);
-    margin-bottom: vars.$content-spacing;
+    margin-top: calc(vars.$spacing-content * 1.5);
+    margin-bottom: vars.$spacing-content;
+
     &:first-child {
       margin-top: 0;
     }
   }
 
+  // Content spacing
   p,
   ul,
   ol,
   blockquote,
   pre,
   figure {
-    margin-bottom: vars.$content-spacing;
+    margin-bottom: vars.$spacing-content;
   }
 
+  // List styling
   ul {
-    font-family: vars.$fontAccent;
+    font-family: vars.$font-accent;
 
     li {
-      font-family: vars.$fontAccent;
+      font-family: vars.$font-accent;
     }
   }
 }
 
+// Header
+// -----------------------------------------------------------------------------
 .header {
   position: fixed;
   top: 0;
@@ -91,6 +109,8 @@ $sidebar-width: 15vw;
   z-index: 10;
 }
 
+// Welcome section
+// -----------------------------------------------------------------------------
 .welcome {
   position: absolute;
   top: 50%;
@@ -100,8 +120,8 @@ $sidebar-width: 15vw;
   p {
     text-align: left;
     max-width: 500px;
-    color: vars.$titleColour;
-    font-family: vars.$fontAccent;
+    color: vars.$color-text-title;
+    font-family: vars.$font-accent;
   }
 
   .clock-weather-row {
@@ -114,9 +134,9 @@ $sidebar-width: 15vw;
     .time-display,
     .weather-display,
     .separator {
-      color: vars.$titleColour;
+      color: vars.$color-text-title;
       opacity: 0.7;
-      font-family: vars.$fontAccent;
+      font-family: vars.$font-accent;
     }
 
     .weather-display {
@@ -127,17 +147,19 @@ $sidebar-width: 15vw;
   }
 }
 
+// Clock and weather components
+// -----------------------------------------------------------------------------
 .clock-weather {
   .clock {
     margin-bottom: 2rem;
 
     .time-display {
-      color: vars.$titleColour;
+      color: vars.$color-text-title;
       margin-bottom: 0.5rem;
     }
 
     .timezone-label {
-      color: vars.$titleColour;
+      color: vars.$color-text-title;
     }
   }
 
@@ -149,7 +171,7 @@ $sidebar-width: 15vw;
       justify-content: flex-end;
 
       .weather-temp {
-        color: vars.$titleColour;
+        color: vars.$color-text-title;
       }
 
       .weather-icon {
@@ -158,12 +180,14 @@ $sidebar-width: 15vw;
 
       .loading,
       .error {
-        color: vars.$titleColour;
+        color: vars.$color-text-title;
       }
     }
   }
 }
 
+// Footer
+// -----------------------------------------------------------------------------
 .footer {
   position: fixed;
   bottom: 0;
@@ -172,5 +196,5 @@ $sidebar-width: 15vw;
   padding: 20px;
   box-sizing: border-box;
   z-index: 10;
-  color: vars.$titleColour;
+  color: vars.$color-text-title;
 }

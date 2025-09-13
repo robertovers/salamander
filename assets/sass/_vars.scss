@@ -1,14 +1,21 @@
-// fonts
-$fontHeader: "Cossette Titre", monospace;
-$fontParagraph: "Roboto", monospace;
-$fontCode: "Fira Code", monospace;
-$fontAccent: "Fira Code", monospace;
+// =============================================================================
+// DESIGN TOKENS
+// =============================================================================
 
-// colours
-$backgroundColour: #1E1D20;
-$primaryFontColour: white;
-$accentFontColour: #C9D4B2;
-$titleColour: #BAADC2;
+// Typography
+// -----------------------------------------------------------------------------
+$font-header: "Cossette Titre", monospace;
+$font-paragraph: "Roboto", monospace;
+$font-code: "Fira Code", monospace;
+$font-accent: "Fira Code", monospace;
 
-// spacing
-$content-spacing: 1rem;
+// Colours
+// -----------------------------------------------------------------------------
+$color-background: #1e1d20;
+$color-text-primary: #ffffff;
+$color-text-accent: #c9d4b2;
+$color-text-title: #baadc2;
+
+// Spacing
+// -----------------------------------------------------------------------------
+$spacing-content: 1rem;
