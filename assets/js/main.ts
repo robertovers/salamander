@@ -1,18 +1,34 @@
-import { updateClock } from "./clock.js";
-import { updateWeather } from "./weather.js";
+import { updateClock } from "./clock";
+import { updateWeather } from "./weather";
+
+interface HugoConfig {
+  timezone: string;
+  latitude: number;
+  longitude: number;
+  locale: string;
+  city: string;
+}
+
+declare global {
+  interface Window {
+    hugoConfig: HugoConfig;
+  }
+}
 
 document.addEventListener("DOMContentLoaded", function (): void {
-  const melbourneTimezone = "Australia/Melbourne";
-  const melbourneLatitude = -37.8136;
-  const melbourneLongitude = 144.9631;
+  const config = window.hugoConfig;
 
-  updateClock(melbourneTimezone);
-  setInterval(() => updateClock(melbourneTimezone), 1000);
+  if (!config) {
+    console.error("Hugo configuration not found");
+    return;
+  }
 
-  updateWeather(melbourneLatitude, melbourneLongitude, melbourneTimezone);
+  updateClock(config.timezone, config.locale);
+  setInterval(() => updateClock(config.timezone, config.locale), 1000);
+
+  updateWeather(config.latitude, config.longitude, config.timezone);
   setInterval(
-    () =>
-      updateWeather(melbourneLatitude, melbourneLongitude, melbourneTimezone),
+    () => updateWeather(config.latitude, config.longitude, config.timezone),
     600000,
   );
 });

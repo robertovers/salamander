@@ -1,10 +1,8 @@
 function updateClock(timezone: string, locale: string = "en-AU"): void {
   const now = new Date();
-  const localTime = new Date(
-    now.toLocaleString("en-US", { timeZone: timezone }),
-  );
 
-  const timeString = localTime.toLocaleTimeString(locale, {
+  const timeString = now.toLocaleTimeString(locale, {
+    timeZone: timezone,
     hour: "numeric",
     minute: "2-digit",
     second: "2-digit",

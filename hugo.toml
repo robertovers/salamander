@@ -1,3 +1,10 @@
 baseURL = "https://robertovers.github.io/"
 languageCode = "en-us"
 title = "salamander theme"
+
+[params.location]
+timezone = "Australia/Melbourne"
+latitude = -37.8136
+longitude = 144.9631
+locale = "en-AU"
+city = "Naarm/Melbourne, Australia"
