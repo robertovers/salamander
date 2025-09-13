@@ -1,0 +1,16 @@
+baseURL = "https://example.com"
+languageCode = "en-us"
+title = "salamander theme"
+themesdir = "../.."
+theme = "salamander"
+
+[params.welcome]
+greeting = "Hello, world!"
+message = "Welcome to the salamander Hugo theme."
+
+[params.location]
+timezone = "Australia/Melbourne"
+latitude = -37.8136
+longitude = 144.9631
+locale = "en-AU"
+city = "Naarm/Melbourne, Australia"

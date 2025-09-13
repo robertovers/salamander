@@ -1,0 +1,26 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  {{ $options := dict
+    "targetPath" "css/style.css"
+    "transpiler" "dartsass"
+  }}
+
+  {{ $style := resources.Get "sass/main.scss" | toCSS $options | minify | fingerprint }}
+  <link href="{{ $style.RelPermalink }}" rel="stylesheet">
+
+  <script>
+    window.hugoConfig = {
+      timezone: "{{ .Site.Params.location.timezone }}",
+      latitude: {{ .Site.Params.location.latitude }},
+      longitude: {{ .Site.Params.location.longitude }},
+      locale: "{{ .Site.Params.location.locale }}",
+      city: "{{ .Site.Params.location.city }}"
+    };
+  </script>
+  {{ $js := resources.Get "js/main.ts" | js.Build | minify | fingerprint }}
+  <script src="{{ $js.RelPermalink }}" type="module"></script>
+
+  <title>{{ .Site.Title }}</title>
+</head>

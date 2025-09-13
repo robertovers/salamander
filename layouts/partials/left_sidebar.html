@@ -1,0 +1,21 @@
+<aside class="sidebar" id="left-sidebar">
+  {{ if .IsHome }}
+    <nav>
+      <li><a href="/blog/">blog</a></li>
+    </nav>
+  {{ else if .IsPage }}
+    <nav>
+      <li><a href="/blog/">back</a></li>
+    </nav>
+  {{ else if eq .Section "blog" }}
+    <nav>
+      <li><a href="/">home</a></li>
+      <li><a href="/tags/">tags</a></li>
+    </nav>
+  {{ else if eq .Section "tags" }}
+    <nav>
+      <li><a href="/">home</a></li>
+      <li><a href="/blog/">blog</a></li>
+    </nav>
+  {{ end }}
+</aside>

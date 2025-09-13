@@ -1,0 +1,204 @@
+// =============================================================================
+// LAYOUT STYLES
+// =============================================================================
+
+@use "vars";
+
+// Layout constants
+// -----------------------------------------------------------------------------
+$header-height: 80px; // 40px + 20px padding
+$footer-height: 60px; // 20px + 20px padding
+$sidebar-width: 15vw;
+
+// Main layout
+// -----------------------------------------------------------------------------
+.main-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: calc(100vh - #{$header-height} - #{$footer-height});
+  margin-top: $header-height;
+  margin-bottom: $footer-height;
+}
+
+// Sidebars
+// -----------------------------------------------------------------------------
+.sidebar {
+  width: $sidebar-width;
+  padding: 20px;
+  position: fixed;
+  top: $header-height;
+  bottom: $footer-height;
+  overflow-y: auto;
+  box-sizing: border-box;
+
+  nav {
+    font-family: vars.$font-accent;
+
+    li {
+      font-family: vars.$font-accent;
+    }
+  }
+}
+
+#left-sidebar {
+  left: 0;
+  text-align: left;
+}
+
+#right-sidebar {
+  right: 0;
+  text-align: right;
+  font-family: vars.$font-accent;
+}
+
+// Content area
+// -----------------------------------------------------------------------------
+.content {
+  margin-left: $sidebar-width;
+  margin-right: $sidebar-width;
+  width: calc(100vw - (#{$sidebar-width} * 2));
+  padding: 20px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  flex: 1;
+
+  // Heading spacing
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: calc(vars.$spacing-content * 1.5);
+    margin-bottom: vars.$spacing-content;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  // Content spacing
+  p,
+  ul,
+  ol,
+  blockquote,
+  pre,
+  figure {
+    margin-bottom: vars.$spacing-content;
+  }
+
+  // List styling
+  ul {
+    font-family: vars.$font-accent;
+
+    li {
+      font-family: vars.$font-accent;
+    }
+  }
+}
+
+// Header
+// -----------------------------------------------------------------------------
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+// Welcome section
+// -----------------------------------------------------------------------------
+.welcome {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  p {
+    text-align: center;
+    max-width: 500px;
+    color: vars.$color-text-title;
+    font-family: vars.$font-accent;
+  }
+
+  .clock-weather-col {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+
+    .timezone-label,
+    .time-display,
+    .weather-display,
+    .astronomy-display,
+    .separator {
+      color: vars.$color-text-title;
+      opacity: 0.7;
+      font-family: vars.$font-accent;
+    }
+
+    .weather-display {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+  }
+}
+
+// Clock and weather components
+// -----------------------------------------------------------------------------
+.clock-weather {
+  .clock {
+    margin-bottom: 2rem;
+
+    .time-display {
+      color: vars.$color-text-title;
+      margin-bottom: 0.5rem;
+    }
+
+    .timezone-label {
+      color: vars.$color-text-title;
+    }
+  }
+
+  .weather {
+    .weather-display {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      justify-content: flex-end;
+
+      .weather-temp {
+        color: vars.$color-text-title;
+      }
+
+      .weather-icon {
+        font-size: 1.2rem;
+      }
+
+      .loading,
+      .error {
+        color: vars.$color-text-title;
+      }
+    }
+  }
+}
+
+// Footer
+// -----------------------------------------------------------------------------
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 10;
+  color: vars.$color-text-title;
+  font-family: vars.$font-accent;
+}

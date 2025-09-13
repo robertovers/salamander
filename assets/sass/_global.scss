@@ -1,0 +1,81 @@
+// =============================================================================
+// GLOBAL STYLES
+// =============================================================================
+
+@use "vars";
+@use "hugo:vars" as h;
+
+// Reset
+// -----------------------------------------------------------------------------
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+figure,
+blockquote,
+body,
+html {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// Base styles
+// -----------------------------------------------------------------------------
+body {
+  font-family: vars.$font-paragraph;
+  color: vars.$color-text-primary;
+  background-color: vars.$color-background;
+}
+
+title {
+  font-weight: normal;
+}
+
+// Headings
+// -----------------------------------------------------------------------------
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-family: vars.$font-header;
+    color: vars.$color-text-title;
+    font-size: calc(1rem + #{6 - $i} * 0.3rem);
+  }
+}
+
+// Code blocks
+// -----------------------------------------------------------------------------
+code,
+pre,
+.code,
+.highlight,
+.highlight code,
+.chroma,
+.chroma code {
+  font-family: vars.$font-code;
+  font-feature-settings: "calt" 1;
+  font-variant-ligatures: contextual;
+}
+
+// Links
+// -----------------------------------------------------------------------------
+a {
+  color: vars.$color-text-accent;
+  font-weight: bold;
+  text-decoration: underline;
+
+  &:visited {
+    color: vars.$color-text-accent;
+  }
+
+  &:hover {
+    color: vars.$color-background;
+    background-color: vars.$color-text-accent;
+    text-decoration: none;
+  }
+}

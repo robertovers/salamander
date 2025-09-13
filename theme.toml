@@ -1,0 +1,11 @@
+name = "salamander"
+license = "MIT"
+description = "A Hugo theme."
+homepage = "https://github.com/robertovers/salamander"
+tags = ["minimal", "clean"]
+features = []
+min_version = "0.1.0"
+
+[author]
+name = "Robert Overs"
+homepage = "https://github.com/robertovers/"
