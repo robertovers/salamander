@@ -24,16 +24,23 @@ function setToStorage(key: string, value: any): void {
   } catch {}
 }
 
-async function updateWeather(): Promise<void> {
+async function updateWeather(
+  latitude: number,
+  longitude: number,
+  timezone: string,
+  elementId: string = "weather-info",
+): Promise<void> {
   const now = Date.now();
-  const weatherElement = document.getElementById("weather-info");
+  const weatherElement = document.getElementById(elementId);
 
   if (!weatherElement) {
     return;
   }
 
-  const cachedWeather: string | null = getFromStorage("weatherCache");
-  const cacheTime: number = getFromStorage("weatherCacheTime", 0);
+  const cacheKey = `weatherCache_${latitude}_${longitude}`;
+  const cacheTimeKey = `weatherCacheTime_${latitude}_${longitude}`;
+  const cachedWeather: string | null = getFromStorage(cacheKey);
+  const cacheTime: number = getFromStorage(cacheTimeKey, 0);
 
   // use cached weather if less than 10 minutes old
   if (cachedWeather && now - cacheTime < 600000) {
@@ -43,7 +50,7 @@ async function updateWeather(): Promise<void> {
 
   try {
     const response = await fetch(
-      "https://api.open-meteo.com/v1/forecast?latitude=-37.8136&longitude=144.9631&current=temperature_2m,weather_code&timezone=Australia%2FMelbourne",
+      `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,weather_code&timezone=${encodeURIComponent(timezone)}`,
     );
     const data: WeatherData = await response.json();
 
@@ -51,41 +58,41 @@ async function updateWeather(): Promise<void> {
     const weatherCode = data.current.weather_code;
 
     const weatherMap: WeatherMap = {
-      0: "☀️",
-      1: "🌤️",
-      2: "⛅",
-      3: "☁️",
-      45: "🌫️",
-      48: "🌫️",
-      51: "🌦️",
-      53: "🌦️",
-      55: "🌦️",
-      61: "🌧️",
-      63: "🌧️",
-      65: "🌧️",
-      71: "🌨️",
-      73: "🌨️",
-      75: "🌨️",
-      95: "⛈️",
-      96: "⛈️",
-      99: "⛈️",
+      0: "clear",
+      1: "sunny",
+      2: "cloudy",
+      3: "overcast",
+      45: "foggy",
+      48: "foggy",
+      51: "drizzle",
+      53: "drizzle",
+      55: "drizzle",
+      61: "rain",
+      63: "rain",
+      65: "heavy rain",
+      71: "snow",
+      73: "snow",
+      75: "heavy snow",
+      95: "thunderstorm",
+      96: "thunderstorm",
+      99: "thunderstorm",
     };
 
-    const weatherIcon = weatherMap[weatherCode] || "🌤️";
+    const weatherIcon = weatherMap[weatherCode] || "sunny";
     const weatherHTML = `
       <span class="weather-temp">${temp}°C</span>
       <span class="weather-icon">${weatherIcon}</span>
     `;
 
-    setToStorage("weatherCache", weatherHTML);
-    setToStorage("weatherCacheTime", now);
+    setToStorage(cacheKey, weatherHTML);
+    setToStorage(cacheTimeKey, now);
 
     weatherElement.innerHTML = weatherHTML;
   } catch (error) {
     const errorHTML = '<span class="error">Weather unavailable</span>';
     weatherElement.innerHTML = errorHTML;
-    setToStorage("weatherCache", errorHTML);
-    setToStorage("weatherCacheTime", now);
+    setToStorage(cacheKey, errorHTML);
+    setToStorage(cacheTimeKey, now);
   }
 }
 
