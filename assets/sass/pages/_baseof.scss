@@ -42,13 +42,25 @@ $sidebar-width: 15vw;
   box-sizing: border-box;
   flex: 1;
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin-top: calc(vars.$content-spacing * 1.5);
     margin-bottom: vars.$content-spacing;
-    &:first-child { margin-top: 0; }
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
-  p, ul, ol, blockquote, pre, figure {
+  p,
+  ul,
+  ol,
+  blockquote,
+  pre,
+  figure {
     margin-bottom: vars.$content-spacing;
   }
 }
@@ -80,29 +92,18 @@ $sidebar-width: 15vw;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    
+
     .timezone-label,
     .time-display,
+    .weather-display,
     .separator {
       color: vars.$titleColour;
     }
-    
+
     .weather-display {
       display: flex;
       align-items: center;
       gap: 0.3rem;
-      
-      .weather-temp {
-        color: vars.$titleColour;
-      }
-      
-      .weather-icon {
-        font-size: 1.2rem;
-      }
-      
-      .loading, .error {
-        color: vars.$titleColour;
-      }
     }
   }
 }
@@ -110,33 +111,34 @@ $sidebar-width: 15vw;
 .clock-weather {
   .clock {
     margin-bottom: 2rem;
-    
+
     .time-display {
       color: vars.$titleColour;
       margin-bottom: 0.5rem;
     }
-    
+
     .timezone-label {
       color: vars.$titleColour;
     }
   }
-  
+
   .weather {
     .weather-display {
       display: flex;
       align-items: center;
       gap: 0.5rem;
       justify-content: flex-end;
-      
+
       .weather-temp {
         color: vars.$titleColour;
       }
-      
+
       .weather-icon {
         font-size: 1.2rem;
       }
-      
-      .loading, .error {
+
+      .loading,
+      .error {
         color: vars.$titleColour;
       }
     }

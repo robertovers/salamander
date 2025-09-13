@@ -1,0 +1,25 @@
+{
+  "name": "salamander-hugo-theme",
+  "version": "1.0.0",
+  "description": "A Hugo theme",
+  "private": true,
+  "packageManager": "pnpm@8.15.0",
+  "scripts": {
+    "dev": "hugo server -D",
+    "build": "hugo --minify",
+    "lint:js": "eslint assets/js/**/*.js",
+    "lint:scss": "stylelint assets/sass/**/*.scss",
+    "lint": "pnpm run lint:js && pnpm run lint:scss",
+    "format:js": "prettier --write assets/js/**/*.js",
+    "format:scss": "prettier --write assets/sass/**/*.scss",
+    "format": "pnpm run format:js && pnpm run format:scss"
+  },
+  "devDependencies": {
+    "eslint": "^9.35.0",
+    "stylelint": "^16.24.0",
+    "prettier": "^3.6.0",
+    "@eslint/js": "^9.0.0"
+  },
+  "author": "Robert Overs",
+  "license": "MIT"
+}
