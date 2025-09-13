@@ -1,6 +1,6 @@
 @use "vars";
 
-$header-height: 60px; // 20px + 20px padding
+$header-height: 80px; // 40px + 20px padding
 $footer-height: 60px; // 20px + 20px padding
 $sidebar-width: 15vw;
 
@@ -59,7 +59,6 @@ $sidebar-width: 15vw;
   left: 0;
   width: 100%;
   padding: 20px;
-  height: 20px;
   box-sizing: border-box;
   z-index: 10;
 }
@@ -70,7 +69,7 @@ $sidebar-width: 15vw;
   left: 0;
   width: 100%;
   padding: 20px;
-  height: 20px;
   box-sizing: border-box;
   z-index: 10;
+  color: vars.$titleColour;
 }
