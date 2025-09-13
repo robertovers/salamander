@@ -1,5 +1,6 @@
 import { updateClock } from "./clock";
 import { updateWeather } from "./weather";
+import { updateAstronomy } from "./astronomy";
 
 /**
  * Configuration object passed from Hugo to the client-side JavaScript.
@@ -59,6 +60,12 @@ function initializeApp(): void {
   updateClock(config.timezone, config.locale);
   setInterval(
     () => updateClock(config.timezone, config.locale),
+    CLOCK_UPDATE_INTERVAL,
+  );
+
+  updateAstronomy(config.timezone);
+  setInterval(
+    () => updateAstronomy(config.timezone),
     CLOCK_UPDATE_INTERVAL,
   );
 

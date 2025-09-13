@@ -2,11 +2,10 @@
 <div class="welcome">
   <p>Hello, world!</p>
   <p>Welcome to the salamander Hugo theme.</p>
-  <div class="clock-weather-row">
+  <div class="clock-weather-col">
     <span class="timezone-label">{{ .Site.Params.location.city }}</span>
-    <span class="separator">|</span>
     <span id="clock" class="time-display"></span>
-    <span class="separator">|</span>
+    <span id="astronomy-info" class="astronomy-display"></span>
     <span id="weather-info" class="weather-display"></span>
   </div>
 </div>

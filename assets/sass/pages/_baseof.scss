@@ -119,21 +119,23 @@ $sidebar-width: 15vw;
   transform: translate(-50%, -50%);
 
   p {
-    text-align: left;
+    text-align: center;
     max-width: 500px;
     color: vars.$color-text-title;
     font-family: vars.$font-accent;
   }
 
-  .clock-weather-row {
+  .clock-weather-col {
     margin-top: 2rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 0.5rem;
 
     .timezone-label,
     .time-display,
     .weather-display,
+    .astronomy-display,
     .separator {
       color: vars.$color-text-title;
       opacity: 0.7;
