@@ -74,6 +74,73 @@ $sidebar-width: 15vw;
     max-width: 500px;
     color: vars.$titleColour;
   }
+
+  .clock-weather-row {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+    .timezone-label,
+    .time-display,
+    .separator {
+      color: vars.$titleColour;
+    }
+    
+    .weather-display {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      
+      .weather-temp {
+        color: vars.$titleColour;
+      }
+      
+      .weather-icon {
+        font-size: 1.2rem;
+      }
+      
+      .loading, .error {
+        color: vars.$titleColour;
+      }
+    }
+  }
+}
+
+.clock-weather {
+  .clock {
+    margin-bottom: 2rem;
+    
+    .time-display {
+      color: vars.$titleColour;
+      margin-bottom: 0.5rem;
+    }
+    
+    .timezone-label {
+      color: vars.$titleColour;
+    }
+  }
+  
+  .weather {
+    .weather-display {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      justify-content: flex-end;
+      
+      .weather-temp {
+        color: vars.$titleColour;
+      }
+      
+      .weather-icon {
+        font-size: 1.2rem;
+      }
+      
+      .loading, .error {
+        color: vars.$titleColour;
+      }
+    }
+  }
 }
 
 .footer {
