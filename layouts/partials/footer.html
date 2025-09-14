@@ -1,16 +1,12 @@
 <footer class="footer">
   {{ if .Site.Params.links.email }}
-  <span>
-    <a href="mailto:{{ .Site.Params.links.email }}" target="_blank" style="text-decoration: none">
-      <img src="/mail.svg" alt="email" style="height: 1.2em; vertical-align: middle;">
-    </a>
+  <span class="footer-icon">
+    <a href="mailto:{{ .Site.Params.links.email }}" target="_blank"><img src="/mail.svg" alt="email" style="height: 1.2em; vertical-align: middle"></a>
   </span>
   {{ end }}
   {{ if .Site.Params.links.github }}
-  <span>
-    <a href={{ .Site.Params.links.github }} target="_blank" style="text-decoration: none">
-      <img src="/github.svg" alt="github" style="height: 1em; vertical-align: middle;">
-    </a>
+  <span class="footer-icon">
+    <a href={{ .Site.Params.links.github }} target="_blank"><img src="/github.svg" alt="github" style="height: 1em; vertical-align: middle"></a>
   </span>
   <span class="seperator">|</span>
   {{ end }}
