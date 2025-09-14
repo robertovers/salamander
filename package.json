@@ -2,7 +2,7 @@
   "name": "salamander-hugo-theme",
   "version": "0.2.0",
   "description": "A Hugo theme",
-  "private": true,
+  "private": false,
   "packageManager": "pnpm@8.15.0",
   "scripts": {
     "dev": "hugo server -D",
