@@ -13,28 +13,6 @@ const MOON_PHASES = [
   "◐ waning crescent",
 ] as const;
 
-/** Sun symbol for daytime */
-const SUN_SYMBOL = "☼";
-
-/**
- * Determines if it's currently daytime based on local time.
- * Uses a simple heuristic: 6 AM to 6 PM is considered daytime.
- *
- * @param timezone - IANA timezone identifier
- * @returns True if it's daytime, false if nighttime
- */
-function isDaytime(timezone: string): boolean {
-  const now = new Date();
-  const timeString = now.toLocaleTimeString("en-US", {
-    timeZone: timezone,
-    hour12: false,
-    hour: "2-digit",
-  });
-
-  const hour = parseInt(timeString, 10);
-  return hour >= 6 && hour < 18;
-}
-
 /**
  * Calculates the current moon phase based on the lunar cycle.
  * Uses astronomical calculations to determine moon phase.
@@ -63,22 +41,18 @@ function calculateMoonPhase(date: Date = new Date()): string {
 }
 
 /**
- * Updates the astronomy display with either sun (daytime) or moon phase (nighttime).
+ * Updates the astronomy display with the moon phase.
  *
  * @param timezone - IANA timezone identifier for day/night calculation
  * @param elementId - DOM element ID to update (defaults to "astronomy-info")
  *
  * @example
  * ```typescript
- * // Update astronomy display for Sydney timezone
- * updateAstronomy("Australia/Sydney");
- *
  * // Update custom element
- * updateAstronomy("America/New_York", "my-astronomy-widget");
+ * updateAstronomy("my-astronomy-widget");
  * ```
  */
 function updateAstronomy(
-  timezone: string,
   elementId: string = DEFAULT_ASTRONOMY_ELEMENT_ID,
 ): void {
   const astronomyElement = document.getElementById(elementId);
@@ -88,7 +62,7 @@ function updateAstronomy(
     return;
   }
 
-  const symbol = isDaytime(timezone) ? SUN_SYMBOL : calculateMoonPhase();
+  const symbol = calculateMoonPhase();
   astronomyElement.textContent = symbol;
 }
 

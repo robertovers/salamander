@@ -14,3 +14,7 @@ latitude = -37.8136
 longitude = 144.9631
 locale = "en-AU"
 city = "Naarm/Melbourne, Australia"
+
+[params.links]
+email = "example@example.com"
+github = "https://github.com/robertovers/salamander"

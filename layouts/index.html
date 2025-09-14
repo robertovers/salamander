@@ -1,10 +1,10 @@
 {{ define "main" }}
 <div class="welcome">
   {{ if .Site.Params.welcome.greeting }}
-  <p>{{ .Site.Params.welcome.greeting }}</p>
+  <p>{{ .Site.Params.welcome.greeting | safeHTML }}</p>
   {{ end }}
   {{ if .Site.Params.welcome.message }}
-  <p>{{ .Site.Params.welcome.message }}</p>
+  <p>{{ .Site.Params.welcome.message | safeHTML }}</p>
   {{ end }}
   <div class="clock-weather-col">
     <span class="timezone-label">{{ .Site.Params.location.city }}</span>
