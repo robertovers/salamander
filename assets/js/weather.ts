@@ -58,7 +58,7 @@ const WEATHER_CODE_MAP: WeatherCodeMap = {
  * @param defaultValue - Default value if key not found or parsing fails
  * @returns Parsed value from storage or default value
  */
-function getFromStorage(key: string, defaultValue: any = null): any {
+function getFromStorage<T>(key: string, defaultValue: T): T {
   try {
     const stored = sessionStorage.getItem(key);
     return stored ? JSON.parse(stored) : defaultValue;
@@ -74,7 +74,7 @@ function getFromStorage(key: string, defaultValue: any = null): any {
  * @param key - Storage key
  * @param value - Value to store (will be JSON serialized)
  */
-function setToStorage(key: string, value: any): void {
+function setToStorage<T>(key: string, value: T): void {
   try {
     sessionStorage.setItem(key, JSON.stringify(value));
   } catch (error) {
