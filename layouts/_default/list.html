@@ -10,14 +10,20 @@
     <h2>Posts tagged "{{ .Title }}"</h2>
     <ul>
       {{ range .Paginator.Pages }}
-        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+        <li class="post-item">
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+          {{ if not .Date.IsZero }}<span class="post-date">{{ .Date.Format "Jan 2, 2006" }}</span>{{ end }}
+        </li>
       {{ end }}
     </ul>
   {{ else }}
     <h2>Blog</h2>
     <ul>
       {{ range .Paginator.Pages }}
-        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+        <li class="post-item">
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+          {{ if not .Date.IsZero }}<span class="post-date">{{ .Date.Format "Jan 2, 2006" }}</span>{{ end }}
+        </li>
       {{ end }}
     </ul>
   {{ end }}
