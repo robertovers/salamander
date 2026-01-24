@@ -15,6 +15,9 @@ longitude = 144.9631
 locale = "en-AU"
 city = "Naarm/Melbourne, Australia"
 
+[params.astronomy]
+knownNewMoon = "2025-10-21T19:54:00"
+
 [params.links]
 email = "example@example.com"
 github = "https://github.com/robertovers/salamander"

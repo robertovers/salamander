@@ -16,6 +16,8 @@ interface HugoConfig {
   locale: string;
   /** City name for display purposes */
   city: string;
+  /** Known new moon date in ISO 8601 format for moon phase calculation */
+  knownNewMoon: string;
 }
 
 declare global {
@@ -63,8 +65,8 @@ function initializeApp(): void {
     CLOCK_UPDATE_INTERVAL,
   );
 
-  updateAstronomy();
-  setInterval(() => updateAstronomy(), CLOCK_UPDATE_INTERVAL);
+  updateAstronomy(config.knownNewMoon);
+  setInterval(() => updateAstronomy(config.knownNewMoon), CLOCK_UPDATE_INTERVAL);
 
   updateWeather(config.latitude, config.longitude, config.timezone);
   setInterval(

@@ -13,23 +13,29 @@ const MOON_PHASES = [
   "◐ waning crescent",
 ] as const;
 
+/** Default known new moon date (October 21, 2025) */
+const DEFAULT_KNOWN_NEW_MOON = "2025-10-21T19:54:00";
+
 /**
  * Calculates the current moon phase based on the lunar cycle.
  * Uses astronomical calculations to determine moon phase.
  *
+ * @param knownNewMoon - ISO 8601 date string of a known new moon
  * @param date - Date to calculate moon phase for (defaults to current date)
  * @returns Moon phase emoji representing current lunar phase
  */
-function calculateMoonPhase(date: Date = new Date()): string {
-  // known new moon date for Melbourne TODO: parameterise
-  const knownNewMoon = new Date(2025, 9, 21, 19, 54);
+function calculateMoonPhase(
+  knownNewMoon: string = DEFAULT_KNOWN_NEW_MOON,
+  date: Date = new Date(),
+): string {
+  const knownNewMoonDate = new Date(knownNewMoon);
 
   // average lunar cycle length in milliseconds (29.53 days)
   const lunarCycle = 29.53 * 24 * 60 * 60 * 1000;
 
   // calculate days since known new moon
   const daysSinceNewMoon =
-    (date.getTime() - knownNewMoon.getTime()) / lunarCycle;
+    (date.getTime() - knownNewMoonDate.getTime()) / lunarCycle;
 
   // get current position in lunar cycle (0-1)
   const cyclePosition = daysSinceNewMoon - Math.floor(daysSinceNewMoon);
@@ -43,16 +49,20 @@ function calculateMoonPhase(date: Date = new Date()): string {
 /**
  * Updates the astronomy display with the moon phase.
  *
- * @param timezone - IANA timezone identifier for day/night calculation
+ * @param knownNewMoon - ISO 8601 date string of a known new moon for phase calculation
  * @param elementId - DOM element ID to update (defaults to "astronomy-info")
  *
  * @example
  * ```typescript
+ * // Update with default element
+ * updateAstronomy("2025-10-21T19:54:00");
+ *
  * // Update custom element
- * updateAstronomy("my-astronomy-widget");
+ * updateAstronomy("2025-10-21T19:54:00", "my-astronomy-widget");
  * ```
  */
 function updateAstronomy(
+  knownNewMoon: string = DEFAULT_KNOWN_NEW_MOON,
   elementId: string = DEFAULT_ASTRONOMY_ELEMENT_ID,
 ): void {
   const astronomyElement = document.getElementById(elementId);
@@ -62,7 +72,7 @@ function updateAstronomy(
     return;
   }
 
-  const symbol = calculateMoonPhase();
+  const symbol = calculateMoonPhase(knownNewMoon);
   astronomyElement.textContent = symbol;
 }
 

@@ -181,7 +181,7 @@ async function updateWeather(
   }
 
   const { cacheKey, timeKey } = generateCacheKeys(latitude, longitude);
-  const cachedWeather: string | null = getFromStorage(cacheKey);
+  const cachedWeather: string | null = getFromStorage(cacheKey, null);
   const cacheTime: number = getFromStorage(timeKey, 0);
 
   // use cached weather if still valid
