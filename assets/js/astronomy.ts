@@ -66,4 +66,4 @@ function updateAstronomy(
   astronomyElement.textContent = symbol;
 }
 
-export { updateAstronomy, isDaytime, calculateMoonPhase };
+export { updateAstronomy, calculateMoonPhase };
