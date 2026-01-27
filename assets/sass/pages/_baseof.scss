@@ -143,8 +143,7 @@ $sidebar-width: 15vw;
     .weather-display,
     .astronomy-display,
     .separator {
-      color: vars.$color-text-title;
-      opacity: 0.7;
+      color: vars.$color-text-secondary;
       font-family: vars.$font-accent;
     }
 
