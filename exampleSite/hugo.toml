@@ -21,3 +21,7 @@ knownNewMoon = "2025-10-21T19:54:00"
 [params.links]
 email = "example@example.com"
 github = "https://github.com/robertovers/salamander"
+
+[markup]
+  [markup.highlight]
+    noClasses = false

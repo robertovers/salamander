@@ -60,8 +60,14 @@ $sidebar-width: 15vw;
   width: calc(100vw - (#{$sidebar-width} * 2));
   padding: 20px;
   overflow-y: auto;
+  scrollbar-width: none; // Firefox
+  -ms-overflow-style: none; // IE/Edge
   box-sizing: border-box;
   flex: 1;
+
+  &::-webkit-scrollbar {
+    display: none; // Chrome/Safari
+  }
 
   // Heading spacing
   h1,

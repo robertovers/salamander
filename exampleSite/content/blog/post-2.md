@@ -21,6 +21,8 @@ def py_func(a: int, b: int) -> int:
     return d
 ```
 
+Hello this is some `inline code`.
+
 ```sql
 select
     id,
