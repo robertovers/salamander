@@ -1,5 +1,11 @@
 # salamander-hugo-theme
 
+## 0.3.0
+
+### Minor Changes
+
+- de7f7c0: colour and font updates
+
 ## 0.2.0
 
 ### Minor Changes
