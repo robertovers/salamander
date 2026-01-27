@@ -96,3 +96,9 @@ a {
   font-size: 1rem;
   white-space: nowrap;
 }
+
+.tags-label {
+  color: vars.$color-text-secondary;
+  font-family: vars.$font-code;
+  font-size: 1rem;
+}
