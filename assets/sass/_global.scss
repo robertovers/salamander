@@ -42,6 +42,7 @@ title {
 @for $i from 1 through 6 {
   h#{$i} {
     font-family: vars.$font-header;
+    font-weight: 500;
     color: vars.$color-text-title;
     font-size: calc(1rem + #{6 - $i} * 0.3rem);
   }

@@ -176,7 +176,6 @@ async function updateWeather(
   const weatherElement = document.getElementById(elementId);
 
   if (!weatherElement) {
-    console.warn(`Weather element with ID "${elementId}" not found`);
     return;
   }
 

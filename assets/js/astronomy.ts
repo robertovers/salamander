@@ -68,7 +68,6 @@ function updateAstronomy(
   const astronomyElement = document.getElementById(elementId);
 
   if (!astronomyElement) {
-    console.warn(`Astronomy element with ID "${elementId}" not found`);
     return;
   }
 
