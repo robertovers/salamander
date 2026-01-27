@@ -1,0 +1,156 @@
+// =============================================================================
+// SYNTAX HIGHLIGHTING (Chroma)
+// =============================================================================
+
+@use "vars";
+
+// Code block container
+.highlight {
+  background-color: darken(vars.$color-background, 3%);
+  border: 2px solid vars.$color-text-secondary;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  overflow-x: auto;
+}
+
+// Inline code
+code:not(.highlight code) {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.15rem 0.35rem;
+  border-radius: 5px;
+}
+
+// Chroma syntax classes
+.chroma {
+  background-color: transparent;
+  color: vars.$color-text-primary;
+
+  // Comments
+  .c,    // Comment
+  .ch,   // Comment.Hashbang
+  .cm,   // Comment.Multiline
+  .c1,   // Comment.Single
+  .cs {  // Comment.Special
+    color: vars.$color-text-secondary;
+    font-style: italic;
+  }
+
+  // Keywords
+  .k,    // Keyword
+  .kc,   // Keyword.Constant
+  .kd,   // Keyword.Declaration
+  .kn,   // Keyword.Namespace
+  .kp,   // Keyword.Pseudo
+  .kr,   // Keyword.Reserved
+  .kt {  // Keyword.Type
+    color: vars.$color-text-title;
+  }
+
+  // Strings
+  .s,    // String
+  .sa,   // String.Affix
+  .sb,   // String.Backtick
+  .sc,   // String.Char
+  .dl,   // String.Delimiter
+  .sd,   // String.Doc
+  .s2,   // String.Double
+  .se,   // String.Escape
+  .sh,   // String.Heredoc
+  .si,   // String.Interpol
+  .sx,   // String.Other
+  .sr,   // String.Regex
+  .s1,   // String.Single
+  .ss {  // String.Symbol
+    color: vars.$color-text-accent;
+  }
+
+  // Numbers
+  .m,    // Number
+  .mb,   // Number.Bin
+  .mf,   // Number.Float
+  .mh,   // Number.Hex
+  .mi,   // Number.Integer
+  .il,   // Number.Integer.Long
+  .mo {  // Number.Oct
+    color: vars.$color-text-accent;
+  }
+
+  // Names/Identifiers
+  .n {   // Name
+    color: vars.$color-text-primary;
+  }
+
+  .na {  // Name.Attribute
+    color: vars.$color-text-title;
+  }
+
+  .nb {  // Name.Builtin
+    color: vars.$color-text-title;
+  }
+
+  .nc {  // Name.Class
+    color: vars.$color-text-title;
+  }
+
+  .nf,   // Name.Function
+  .fm {  // Name.Function.Magic
+    color: vars.$color-text-accent;
+  }
+
+  .ni {  // Name.Entity
+    color: vars.$color-text-primary;
+  }
+
+  .nn {  // Name.Namespace
+    color: vars.$color-text-title;
+  }
+
+  .nt {  // Name.Tag
+    color: vars.$color-text-title;
+  }
+
+  .nv,   // Name.Variable
+  .vc,   // Name.Variable.Class
+  .vg,   // Name.Variable.Global
+  .vi,   // Name.Variable.Instance
+  .vm {  // Name.Variable.Magic
+    color: vars.$color-text-primary;
+  }
+
+  // Operators
+  .o,    // Operator
+  .ow {  // Operator.Word
+    color: vars.$color-text-secondary;
+  }
+
+  // Punctuation
+  .p {   // Punctuation
+    color: vars.$color-text-primary;
+  }
+
+  // Generic
+  .ge {  // Generic.Emph
+    font-style: italic;
+  }
+
+  .gs {  // Generic.Strong
+    font-weight: bold;
+  }
+
+  .gd {  // Generic.Deleted
+    color: #ff6b6b;
+  }
+
+  .gi {  // Generic.Inserted
+    color: vars.$color-text-accent;
+  }
+
+  // Line numbers
+  .ln,
+  .lnt {
+    color: vars.$color-text-secondary;
+    margin-right: 0.5rem;
+    user-select: none;
+  }
+}

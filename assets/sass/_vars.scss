@@ -4,8 +4,8 @@
 
 // Typography
 // -----------------------------------------------------------------------------
-$font-header: "Cossette Titre", monospace;
-$font-paragraph: "Roboto", monospace;
+$font-header: "Fira Sans Condensed", sans-serif;
+$font-paragraph: "Roboto", sans-serif;
 $font-code: "Fira Code", monospace;
 $font-accent: "Fira Code", monospace;
 
@@ -13,8 +13,9 @@ $font-accent: "Fira Code", monospace;
 // -----------------------------------------------------------------------------
 $color-background: #1e1d20;
 $color-text-primary: #ffffff;
-$color-text-accent: #c9d4b2;
-$color-text-title: #baadc2;
+$color-text-secondary: #79737d;
+$color-text-accent: #15cb64;
+$color-text-title: #ceb2db;
 
 // Spacing
 // -----------------------------------------------------------------------------

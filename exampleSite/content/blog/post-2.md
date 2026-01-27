@@ -1,5 +1,6 @@
 ---
 title: Post 2
+date: 2024-02-20
 tags:
   - hugo
   - hugo2
@@ -19,6 +20,8 @@ def py_func(a: int, b: int) -> int:
     d = c + b
     return d
 ```
+
+Hello this is some `inline code`.
 
 ```sql
 select

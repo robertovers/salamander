@@ -39,8 +39,6 @@ function updateClock(timezone: string, locale: string = DEFAULT_LOCALE): void {
 
   if (timeElement) {
     timeElement.textContent = timeString;
-  } else {
-    console.warn(`Clock element with ID "${CLOCK_ELEMENT_ID}" not found`);
   }
 }
 

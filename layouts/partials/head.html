@@ -1,6 +1,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ .Site.Params.description | default .Site.Title }}">
   
   {{ $options := dict
     "targetPath" "css/style.css"
@@ -16,7 +17,8 @@
       latitude: {{ .Site.Params.location.latitude }},
       longitude: {{ .Site.Params.location.longitude }},
       locale: "{{ .Site.Params.location.locale }}",
-      city: "{{ .Site.Params.location.city }}"
+      city: "{{ .Site.Params.location.city }}",
+      knownNewMoon: "{{ .Site.Params.astronomy.knownNewMoon | default "2025-10-21T19:54:00" }}"
     };
   </script>
   {{ $js := resources.Get "js/main.ts" | js.Build | minify | fingerprint }}

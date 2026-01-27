@@ -3,7 +3,6 @@
 // =============================================================================
 
 @use "vars";
-@use "hugo:vars" as h;
 
 // Reset
 // -----------------------------------------------------------------------------
@@ -43,6 +42,7 @@ title {
 @for $i from 1 through 6 {
   h#{$i} {
     font-family: vars.$font-header;
+    font-weight: 500;
     color: vars.$color-text-title;
     font-size: calc(1rem + #{6 - $i} * 0.3rem);
   }
@@ -79,4 +79,26 @@ a {
     background-color: vars.$color-text-accent;
     text-decoration: none;
   }
+}
+
+// Post list
+// -----------------------------------------------------------------------------
+.post-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.post-date {
+  color: vars.$color-text-secondary;
+  font-family: vars.$font-code;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.tags-label {
+  color: vars.$color-text-secondary;
+  font-family: vars.$font-code;
+  font-size: 1rem;
 }
