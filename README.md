@@ -2,4 +2,4 @@
 
 A minimal hugo theme.
 
-<img width="906" height="642" alt="salamander" src="https://github.com/user-attachments/assets/aa4af919-e92a-4a03-bf1b-ae6739c82755" />
+<img width="1031" height="594" alt="Screenshot 2026-01-27 at 10 36 57 pm" src="https://github.com/user-attachments/assets/7466d7a7-a420-4a4f-b9c9-b0a76de7d7eb" />
