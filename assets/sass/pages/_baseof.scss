@@ -31,6 +31,13 @@ $sidebar-width: 15vw;
   bottom: $footer-height;
   overflow-y: auto;
   box-sizing: border-box;
+
+  nav {
+    a {
+      font-family: vars.$font-accent;
+      font-size: 1.125rem;
+    }
+  }
 }
 
 #left-sidebar {

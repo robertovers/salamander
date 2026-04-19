@@ -2,8 +2,8 @@
 title: Consectetur Adipiscing Elit
 date: 2024-02-20
 tags:
-  - hugo
-  - hugo2
+  - enim
+  - dolor
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.

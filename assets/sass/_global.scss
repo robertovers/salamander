@@ -94,19 +94,67 @@ a {
     font-family: vars.$font-paragraph;
     font-weight: bold;
 
+    .post-right {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .post-tags {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .post-tag {
+      color: vars.$color-text-secondary;
+      font-weight: normal;
+    }
+
     .post-date {
       color: vars.$color-text-secondary;
       font-weight: normal;
       white-space: nowrap;
     }
 
-    &:hover .post-date {
+    &:hover .post-date,
+    &:hover .post-tag {
       color: vars.$color-background;
     }
   }
 }
 
-.tags-label {
-  color: vars.$color-text-secondary;
-  font-family: vars.$font-accent;
+// Single post metadata (date + tags)
+// -----------------------------------------------------------------------------
+.post-meta {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  margin-bottom: vars.$spacing-content;
+
+  .post-date {
+    color: vars.$color-text-secondary;
+    font-weight: normal;
+  }
+
+  .post-tags {
+    display: flex;
+    gap: 0.5rem;
+
+    a {
+      font-family: vars.$font-paragraph;
+      font-size: 1.25rem;
+      font-weight: normal;
+      color: vars.$color-text-secondary;
+
+      &:visited {
+        color: vars.$color-text-secondary;
+      }
+
+      &:hover {
+        color: vars.$color-background;
+        background-color: vars.$color-text-accent;
+      }
+    }
+  }
 }
