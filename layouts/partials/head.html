@@ -24,5 +24,9 @@
   {{ $js := resources.Get "js/main.ts" | js.Build | minify | fingerprint }}
   <script src="{{ $js.RelPermalink }}" type="module"></script>
 
+  {{ with resources.Get "favicon.svg" }}
+  <link rel="icon" href="/favicon.ico">
+  {{ end }}
+
   <title>{{ .Site.Title }}</title>
 </head>

@@ -29,6 +29,7 @@ html {
 // -----------------------------------------------------------------------------
 body {
   font-family: vars.$font-paragraph;
+  font-size: 1.25rem;
   color: vars.$color-text-primary;
   background-color: vars.$color-background;
 }
@@ -44,7 +45,7 @@ title {
     font-family: vars.$font-header;
     font-weight: 500;
     color: vars.$color-text-title;
-    font-size: calc(1rem + #{6 - $i} * 0.3rem);
+    font-size: calc(0.5rem + #{6 - $i} * 0.3rem);
   }
 }
 
@@ -58,6 +59,7 @@ pre,
 .chroma,
 .chroma code {
   font-family: vars.$font-code;
+  font-size: 1rem;
   font-feature-settings: "calt" 1;
   font-variant-ligatures: contextual;
 }
@@ -68,7 +70,7 @@ a {
   color: vars.$color-text-accent;
   font-family: vars.$font-accent;
   font-weight: bold;
-  text-decoration: underline;
+  text-decoration: none;
 
   &:visited {
     color: vars.$color-text-accent;
@@ -84,21 +86,27 @@ a {
 // Post list
 // -----------------------------------------------------------------------------
 .post-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1rem;
-}
+  a {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    font-family: vars.$font-paragraph;
+    font-weight: bold;
 
-.post-date {
-  color: vars.$color-text-secondary;
-  font-family: vars.$font-code;
-  font-size: 1rem;
-  white-space: nowrap;
+    .post-date {
+      color: vars.$color-text-secondary;
+      font-weight: normal;
+      white-space: nowrap;
+    }
+
+    &:hover .post-date {
+      color: vars.$color-background;
+    }
+  }
 }
 
 .tags-label {
   color: vars.$color-text-secondary;
-  font-family: vars.$font-code;
-  font-size: 1rem;
+  font-family: vars.$font-accent;
 }

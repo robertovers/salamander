@@ -31,14 +31,6 @@ $sidebar-width: 15vw;
   bottom: $footer-height;
   overflow-y: auto;
   box-sizing: border-box;
-
-  nav {
-    font-family: vars.$font-accent;
-
-    li {
-      font-family: vars.$font-accent;
-    }
-  }
 }
 
 #left-sidebar {
@@ -49,7 +41,6 @@ $sidebar-width: 15vw;
 #right-sidebar {
   right: 0;
   text-align: right;
-  font-family: vars.$font-accent;
 }
 
 // Content area
@@ -93,15 +84,6 @@ $sidebar-width: 15vw;
   figure {
     margin-bottom: vars.$spacing-content;
   }
-
-  // List styling
-  ul {
-    font-family: vars.$font-accent;
-
-    li {
-      font-family: vars.$font-accent;
-    }
-  }
 }
 
 // Header
@@ -128,7 +110,8 @@ $sidebar-width: 15vw;
     text-align: center;
     max-width: 600px;
     color: vars.$color-text-title;
-    font-family: vars.$font-accent;
+    font-family: vars.$font-paragraph;
+    font-weight: bold;
   }
 
   .clock-weather-col {
@@ -144,7 +127,8 @@ $sidebar-width: 15vw;
     .astronomy-display,
     .separator {
       color: vars.$color-text-secondary;
-      font-family: vars.$font-accent;
+      font-family: vars.$font-code;
+      font-size: 1rem;
     }
 
     .weather-display {
@@ -204,6 +188,7 @@ $sidebar-width: 15vw;
   padding: 20px;
   box-sizing: border-box;
   z-index: 10;
+  font-size: 1rem;
   color: vars.$color-text-title;
   font-family: vars.$font-accent;
 
