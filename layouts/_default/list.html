@@ -22,7 +22,7 @@
               {{ with .GetTerms "tags" }}
                 <span class="post-tags">{{ range . }}<span class="post-tag">{{ .LinkTitle }}</span>{{ end }}</span>
               {{ end }}
-              |
+              -
               {{ if not .Date.IsZero }}<span class="post-date">{{ .Date.Format "Jan 2, 2006" }}</span>{{ end }}
             </span>
           </a>
@@ -40,7 +40,7 @@
               {{ with .GetTerms "tags" }}
                 <span class="post-tags">{{ range . }}<span class="post-tag">{{ .LinkTitle }}</span>{{ end }}</span>
               {{ end }}
-              |
+              -
               {{ if not .Date.IsZero }}<span class="post-date">{{ .Date.Format "Jan 2, 2006" }}</span>{{ end }}
             </span>
           </a>
