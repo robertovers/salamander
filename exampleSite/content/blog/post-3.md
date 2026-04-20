@@ -1,81 +1,99 @@
 ---
-title: Post 3
+title: Sed Do Eiusmod Tempor Incididunt
 date: 2024-03-10
 tags:
-  - hugo3
+  - ipsum
+  - amet
 ---
-# About me
-This is the about me page.
 
-## header 2
-hello
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
-### header three
-swag
+## Project Structure
 
-## header 2
-hello
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-### header three
-swag
+```
+my-api/
+├── main.go
+├── handlers/
+│   ├── posts.go
+│   └── users.go
+├── models/
+│   └── post.go
+└── go.mod
+```
 
-## header 2
-hello
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.
 
-### header three
-swag
+## Defining the Model
 
-## header 2
-hello
+```go
+package models
 
-### header three
-swag
+import "time"
 
-## header 2
-hello
+type Post struct {
+    ID        int       `json:"id"`
+    Title     string    `json:"title"`
+    Body      string    `json:"body"`
+    AuthorID  int       `json:"author_id"`
+    CreatedAt time.Time `json:"created_at"`
+}
+```
 
-### header three
-swag
+Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione sequi nesciunt.
 
-## header 2
-hello
+## Writing the Handler
 
-### header three
-swag
+At vero eos et accusamus et iusto odio dignissimos ducimus. The handler reads the `id` path parameter, fetches the record, and returns JSON:
 
-## header 2
-hello
+```go
+package handlers
 
-### header three
-swag
+import (
+    "encoding/json"
+    "net/http"
+    "strconv"
 
-## header 2
-hello
+    "my-api/models"
+)
 
-### header three
-swag
+func GetPost(w http.ResponseWriter, r *http.Request) {
+    id, err := strconv.Atoi(r.PathValue("id"))
+    if err != nil {
+        http.Error(w, "invalid id", http.StatusBadRequest)
+        return
+    }
 
-## header 2
-hello
+    post, err := models.FindPost(id)
+    if err != nil {
+        http.Error(w, "not found", http.StatusNotFound)
+        return
+    }
 
-### header three
-swag
+    w.Header().Set("Content-Type", "application/json")
+    json.NewEncoder(w).Encode(post)
+}
+```
 
-## header 2
-hello
+Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus. Use `r.PathValue` (available since Go 1.22) to avoid pulling in a third-party router for simple cases.
 
-### header three
-swag
+### Registering Routes
 
-## header 2
-hello
+```go
+package main
 
-### header three
-swag
+import (
+    "net/http"
 
-## header 2
-hello
+    "my-api/handlers"
+)
 
-### header three
-swag
+func main() {
+    mux := http.NewServeMux()
+    mux.HandleFunc("GET /posts/{id}", handlers.GetPost)
+    http.ListenAndServe(":8080", mux)
+}
+```
 
+Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum dolorem eum fugiat quo voluptas nulla pariatur.

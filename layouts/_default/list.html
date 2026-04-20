@@ -1,28 +1,49 @@
 {{ define "main" }}
   {{ if eq .Kind "taxonomy" }}
-    <h2>All Tags</h2>
+    <h1>All Tags</h1>
     <ul>
       {{ range .Site.Taxonomies.tags.Alphabetical }}
-        <li><a href="{{ .Page.Permalink }}">{{ .Name }} ({{ .Count }})</a></li>
+        <li class="post-item">
+          <a href="{{ .Page.Permalink }}">
+            <span class="post-title">{{ .Name }}</span>
+            <span class="post-date">{{ .Count }}</span>
+          </a>
+        </li>
       {{ end }}
     </ul>
   {{ else if eq .Kind "term" }}
-    <h2>Posts tagged "{{ .Title }}"</h2>
+    <h1>Posts tagged "{{ .Title }}"</h1>
     <ul>
       {{ range .Paginator.Pages }}
         <li class="post-item">
-          <a href="{{ .Permalink }}">{{ .Title }}</a>
-          {{ if not .Date.IsZero }}<span class="post-date">{{ .Date.Format "Jan 2, 2006" }}</span>{{ end }}
+          <a href="{{ .Permalink }}">
+            <span class="post-title">{{ .Title }}</span>
+            <span class="post-right">
+              {{ with .GetTerms "tags" }}
+                <span class="post-tags">{{ range . }}<span class="post-tag">{{ .LinkTitle }}</span>{{ end }}</span>
+              {{ end }}
+              -
+              {{ if not .Date.IsZero }}<span class="post-date">{{ .Date.Format "Jan 2, 2006" }}</span>{{ end }}
+            </span>
+          </a>
         </li>
       {{ end }}
     </ul>
   {{ else }}
-    <h2>Blog</h2>
+    <h1>Blog</h1>
     <ul>
       {{ range .Paginator.Pages }}
         <li class="post-item">
-          <a href="{{ .Permalink }}">{{ .Title }}</a>
-          {{ if not .Date.IsZero }}<span class="post-date">{{ .Date.Format "Jan 2, 2006" }}</span>{{ end }}
+          <a href="{{ .Permalink }}">
+            <span class="post-title">{{ .Title }}</span>
+            <span class="post-right">
+              {{ with .GetTerms "tags" }}
+                <span class="post-tags">{{ range . }}<span class="post-tag">{{ .LinkTitle }}</span>{{ end }}</span>
+              {{ end }}
+              -
+              {{ if not .Date.IsZero }}<span class="post-date">{{ .Date.Format "Jan 2, 2006" }}</span>{{ end }}
+            </span>
+          </a>
         </li>
       {{ end }}
     </ul>

@@ -29,6 +29,7 @@ html {
 // -----------------------------------------------------------------------------
 body {
   font-family: vars.$font-paragraph;
+  font-size: 1.25rem;
   color: vars.$color-text-primary;
   background-color: vars.$color-background;
 }
@@ -44,7 +45,7 @@ title {
     font-family: vars.$font-header;
     font-weight: 500;
     color: vars.$color-text-title;
-    font-size: calc(1rem + #{6 - $i} * 0.3rem);
+    font-size: calc(0.5rem + #{6 - $i} * 0.3rem);
   }
 }
 
@@ -58,6 +59,7 @@ pre,
 .chroma,
 .chroma code {
   font-family: vars.$font-code;
+  font-size: 1rem;
   font-feature-settings: "calt" 1;
   font-variant-ligatures: contextual;
 }
@@ -65,18 +67,18 @@ pre,
 // Links
 // -----------------------------------------------------------------------------
 a {
-  color: vars.$color-text-accent;
+  color: vars.$color-text-secondary;
   font-family: vars.$font-accent;
   font-weight: bold;
-  text-decoration: underline;
+  text-decoration: none;
 
   &:visited {
-    color: vars.$color-text-accent;
+    color: vars.$color-text-secondary;
   }
 
   &:hover {
     color: vars.$color-background;
-    background-color: vars.$color-text-accent;
+    background-color: vars.$color-text-secondary;
     text-decoration: none;
   }
 }
@@ -84,21 +86,78 @@ a {
 // Post list
 // -----------------------------------------------------------------------------
 .post-item {
+  a {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    font-family: vars.$font-paragraph;
+    font-weight: bold;
+
+    .post-right {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .post-tags {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .post-tag {
+      color: vars.$color-text-secondary;
+      font-weight: normal;
+    }
+
+    .post-date {
+      color: vars.$color-text-secondary;
+      font-weight: normal;
+      white-space: nowrap;
+    }
+
+    &:hover .post-date,
+    &:hover .post-tag {
+      color: vars.$color-background;
+    }
+  }
+}
+
+// Single post metadata (date + tags)
+// -----------------------------------------------------------------------------
+.post-meta {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
   gap: 1rem;
-}
+  align-items: baseline;
+  margin-bottom: vars.$spacing-content;
+  justify-content: space-between;
+  font-weight: bold;
 
-.post-date {
-  color: vars.$color-text-secondary;
-  font-family: vars.$font-code;
-  font-size: 1rem;
-  white-space: nowrap;
-}
+  .post-date {
+    color: vars.$color-text-secondary;
+    font-weight: normal;
+  }
 
-.tags-label {
-  color: vars.$color-text-secondary;
-  font-family: vars.$font-code;
-  font-size: 1rem;
+  .post-tags {
+    display: flex;
+    font-style: italic;
+    text-decoration: underline;
+    gap: 0.5rem;
+
+    a {
+      font-family: vars.$font-paragraph;
+      font-size: 1.25rem;
+      color: vars.$color-text-secondary;
+
+      &:visited {
+        color: vars.$color-text-secondary;
+      }
+
+      &:hover {
+        color: vars.$color-background;
+        background-color: vars.$color-text-secondary;
+      }
+    }
+  }
 }

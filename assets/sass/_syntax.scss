@@ -62,7 +62,7 @@ code:not(.highlight code) {
   .sr,   // String.Regex
   .s1,   // String.Single
   .ss {  // String.Symbol
-    color: vars.$color-text-accent;
+    color: vars.$color-text-secondary;
   }
 
   // Numbers
@@ -73,7 +73,7 @@ code:not(.highlight code) {
   .mi,   // Number.Integer
   .il,   // Number.Integer.Long
   .mo {  // Number.Oct
-    color: vars.$color-text-accent;
+    color: vars.$color-text-secondary;
   }
 
   // Names/Identifiers
@@ -95,7 +95,7 @@ code:not(.highlight code) {
 
   .nf,   // Name.Function
   .fm {  // Name.Function.Magic
-    color: vars.$color-text-accent;
+    color: vars.$color-text-secondary;
   }
 
   .ni {  // Name.Entity
@@ -143,7 +143,7 @@ code:not(.highlight code) {
   }
 
   .gi {  // Generic.Inserted
-    color: vars.$color-text-accent;
+    color: vars.$color-text-secondary;
   }
 
   // Line numbers

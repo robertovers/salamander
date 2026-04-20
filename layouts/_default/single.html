@@ -1,12 +1,10 @@
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
-  {{ if not .Date.IsZero }}
-    <p class="post-date">{{ .Date.Format "Jan 2, 2006" }}</p>
-  {{ end }}
-  {{ with .Params.tags }}
-    <p><span class="tags-label">Tags: </span>
-    {{ range $i, $tag := . }}{{ if $i }}<span class="tags-label">, </span>{{ end }}<a href="{{ "/tags/" | relLangURL }}{{ $tag | urlize }}/">{{ $tag }}</a>{{ end }}
-    </p>
-  {{ end }}
+  <div class="post-meta">
+    {{ if not .Date.IsZero }}<span class="post-date">{{ .Date.Format "Jan 2, 2006" }}</span>{{ end }}
+    {{ with .GetTerms "tags" }}
+      <span class="post-tags">{{ range . }}<a href="{{ .Permalink }}">{{ .LinkTitle }}</a>{{ end }}</span>
+    {{ end }}
+  </div>
   {{ .Content }}
 {{ end }}
