@@ -116,7 +116,7 @@ $sidebar-width: 15vw;
   p {
     text-align: center;
     max-width: 600px;
-    color: vars.$color-text-title;
+    color: vars.$color-text-secondary;
     font-family: vars.$font-paragraph;
     font-weight: bold;
   }
@@ -201,6 +201,7 @@ $sidebar-width: 15vw;
 
   a {
     text-decoration: underline;
+    font-style: italic;
     font-family: vars.$font-paragraph;
   }
 

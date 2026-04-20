@@ -67,18 +67,18 @@ pre,
 // Links
 // -----------------------------------------------------------------------------
 a {
-  color: vars.$color-text-accent;
+  color: vars.$color-text-secondary;
   font-family: vars.$font-accent;
   font-weight: bold;
   text-decoration: none;
 
   &:visited {
-    color: vars.$color-text-accent;
+    color: vars.$color-text-secondary;
   }
 
   &:hover {
     color: vars.$color-background;
-    background-color: vars.$color-text-accent;
+    background-color: vars.$color-text-secondary;
     text-decoration: none;
   }
 }
@@ -132,6 +132,7 @@ a {
   align-items: baseline;
   margin-bottom: vars.$spacing-content;
   justify-content: space-between;
+  font-weight: bold;
 
   .post-date {
     color: vars.$color-text-secondary;
@@ -140,12 +141,13 @@ a {
 
   .post-tags {
     display: flex;
+    font-style: italic;
+    text-decoration: underline;
     gap: 0.5rem;
 
     a {
       font-family: vars.$font-paragraph;
       font-size: 1.25rem;
-      font-weight: normal;
       color: vars.$color-text-secondary;
 
       &:visited {
@@ -154,7 +156,7 @@ a {
 
       &:hover {
         color: vars.$color-background;
-        background-color: vars.$color-text-accent;
+        background-color: vars.$color-text-secondary;
       }
     }
   }
