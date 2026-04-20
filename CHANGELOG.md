@@ -1,5 +1,11 @@
 # salamander-hugo-theme
 
+## 0.3.1
+
+### Patch Changes
+
+- b205391: revise colours and fonts
+
 ## 0.3.0
 
 ### Minor Changes
